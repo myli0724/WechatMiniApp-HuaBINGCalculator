@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/calculate/cla",
+    "pages/logs/logs",
+    "pages/info/info"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#00a8f3",
+    "navigationBarTitleText": "画饼计算器",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#7f8389",
+    "selectedColor": "#00a8f3",
+    "borderStyle": "black",
+    "backgroundColor": "#f7f7fa",
+    "list": [
+      {
+        "text": "计算",
+        "pagePath": "pages/calculate/cla",
+        "iconPath": "/static/icon/calculator/calculator.png",
+        "selectedIconPath": "/static/icon/calculator/calculator-select.png"
+      },
+      {
+        "text": "关于",
+        "pagePath": "pages/info/info",
+        "iconPath": "/static/icon/about/info.png",
+        "selectedIconPath": "/static/icon/about/info-select.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,26 @@
+<!--pages/calculate/cla.wxml-->
+
+<view class="input-group">
+  <text class="title">宽度</text>
+  <input class="input" type="digit" placeholder="输入宽度b（mm）"/>
+</view>
+
+<view class="input-group">
+  <text class="title">高度</text>
+  <input class="input" type="digit" placeholder="输入高度h（mm）"/>
+</view>
+
+<view class="input-group">
+  <text class="title">a3?</text>
+  <input class="input" type="digit" placeholder="默认40（mm）"/>
+</view>
+
+<view class="input-group">
+  <text class="title">弯矩</text>
+  <input class="input" type="digit" placeholder="输入弯矩M（kN/m）"/>
+</view>
+
+<view class="input-group">
+  <text class="title">混凝土级别</text>
+  <input class="input" type="digit" placeholder="c15...c80"/>
+</view>

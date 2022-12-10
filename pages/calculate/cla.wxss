@@ -1,0 +1,22 @@
+/* pages/calculate/cla.wxss */
+
+.input-group{
+  display: flex;
+  height: 40px;
+  margin: 20px;
+  border: 3px solid #00a8f3;
+  border-radius: 10px;
+}
+
+.title{
+  position:absolute;
+  font-size: 12 px;
+  background:white;
+  margin: -10px 0 0 10px;
+  padding: 0 5px;
+  color: rgb(144, 147, 167);
+}
+
+.input{
+  margin: auto 10px;
+}
