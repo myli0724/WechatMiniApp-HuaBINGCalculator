@@ -1,2 +1,13 @@
 <!--pages/info/info.wxml-->
-<text>关于本小程序：李画饼的计算器;可以留白也可以写诗。。。</text>
+<view style="margin-top: 10%; display: flex;justify-content: center;">
+  <image mode="aspectFill"
+              src="https://s1.ax1x.com/2022/12/10/zfJP7q.png"
+              style="height:100px;width:110px" bindload="bindload" />
+</view>
+
+  <text style="margin-top: 10px;display: flex;justify-content: center;">
+  关于本小程序：李画饼的计算器。</text>
+  <text style="margin-top: 10px;display: flex;justify-content: center;">
+  可以留白,</text>
+  <text style="margin-top: 10px;display: flex;justify-content: center;">
+  也可以写诗。。。</text>

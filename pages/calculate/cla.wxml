@@ -2,25 +2,64 @@
 
 <view class="input-group">
   <text class="title">宽度</text>
-  <input class="input" type="digit" placeholder="输入宽度b（mm）"/>
+  <input class="input" type="digit" placeholder="输入宽度b（mm）" 
+  value='{{b}}'
+  bindinput="bInput"/>
 </view>
 
 <view class="input-group">
   <text class="title">高度</text>
-  <input class="input" type="digit" placeholder="输入高度h（mm）"/>
+  <input class="input" type="digit" placeholder="输入高度h（mm）"
+  value='{{h}}'
+  bindinput="hInput"/>
 </view>
 
 <view class="input-group">
-  <text class="title">a3?</text>
-  <input class="input" type="digit" placeholder="默认40（mm）"/>
+  <text class="title">as</text>
+  <input class="input" type="digit" placeholder="默认40（mm）"
+  value='{{as}}'
+  bindinput="asInput"/>
 </view>
 
 <view class="input-group">
   <text class="title">弯矩</text>
-  <input class="input" type="digit" placeholder="输入弯矩M（kN/m）"/>
+  <input class="input" type="digit" placeholder="输入弯矩M（kN/m）"
+  value='{{M}}'
+  bindinput="MInput"/>
 </view>
 
 <view class="input-group">
   <text class="title">混凝土级别</text>
-  <input class="input" type="digit" placeholder="c15...c80"/>
+  <view class="pick">
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array1}}">
+    <view class="pickered " style="color: rgb(51, 136, 189);">
+          当前选择：{{array1[index]}}
+        </view>
+  </picker>
+  </view>
+</view>
+
+<view class="input-group">
+  <text class="title">受拉纵筋级别</text>
+  <view class="pick">
+    <picker bindchange="bindPickerChange2" value="{{index2}}" range="{{array2}}">
+    <view class="pickered" style="color: rgb(51, 136, 189);">
+          当前选择：{{array2[index2]}}
+        </view>
+  </picker>
+  </view>
+</view>
+
+<view class="btn" style="display: flex;justify-content: center;">
+  <button class="mini-btn" type="default" size="mini" bindtap="start">开始计算</button>
+  <button class="mini-btn" type="warn" size="mini" bindtap="delect">清空重输</button>
+</view>
+
+<view class="res">
+  <text class="title">结果</text>
+  <text class="restext"></text>
+  <text class="restext">{{res_text1}}</text>
+  <text class="restext">{{res_text2}}</text>
+  <text class="restext">{{res_text3}}</text>
+  <text class="restext">{{res_text4}}</text>
 </view>
