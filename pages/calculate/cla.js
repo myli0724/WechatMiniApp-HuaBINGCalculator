@@ -8,6 +8,8 @@ Page({
     array2:['HPB300','HRB335','HRB400,HRBF400,RRB400','HRB500,HRBF500'],
     arrayA1:[1,1,1,1,1,1,1,1,0.99,0.98,0.97,0.96,0.95,0.94],
     arrayFc:[7.2,9.6,11.9,14.3,16.7,19.1,21.1,23.1,25.3,27.5,29.7,31.8,33.8,35.3],
+    arrayFt:[0.91,11.1,1.27,1.43,1.57,1.71,1.8,1.89,1.96,2.04,2.09,2.14,2.18,2.22
+    ],
     arrayFy:[270,300,360,435],
     arrayB1:[0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.79,0.78,0.77,0.76,0.75,0.74
     ],
@@ -19,7 +21,7 @@ Page({
     h: null,
     as: null,
     M: null,
-    res_text1:'none',
+    res_text1:'请输入工程中合理的数据，\n注意单位转换;\n（ps：个人玩具项目，画饼不断，也许有bug，计算结果仅供参考(￣▽￣)"）',
     res_text2:'',
     res_text3:'',
     res_text4:''
@@ -129,6 +131,7 @@ Page({
     var M = this.data.M;
     var α1 = this.data.arrayA1[this.data.index];
     var fc = this.data.arrayFc[this.data.index];
+    var ft = this.data.arrayFt[this.data.index];
     var fy = this.data.arrayFy[this.data.index2];
     var β1 = this.data.arrayB1[this.data.index];
     var Es = this.data.arrayEs[this.data.index2];
@@ -140,6 +143,13 @@ Page({
     var ξb = β1/(1+(fy/(Es*εcu)));
     var ys = 0.5*(1+(Math.sqrt((1-2*αs))));
     var As = M*1000000/(fy*ys*h0);
+    var ρmin = 0.45*ft/fy*h/h0;
+    if(ρmin>0.002){
+      ρmin = ρmin;
+    }else{
+      ρmin = 0.002;
+    }
+    var ρ = As/(b*h0);
 
     var text1 = "（1）几何信息：\n h0=h-as="+h+"-"+as+"="+(h-as)+"(mm)";
     var text2 = "（2）参数：\n αs = M/(α1*fc*b*h0*h0),\n 其中，混凝土级别为"+this.data.array1[this.data.index]+"时，α1="+α1+",fc="+fc+",\n 故αs="+M+"*1000000/"+"("+α1+"*"+fc+"*"+b+"*"+h0+"*"+h0+")="+αs+"; \n ξ=1-√(1-2αs)="+ξ+";";
@@ -147,12 +157,18 @@ Page({
     if(ξb<ξ){
       text3+="\n由于ξ="+ξ+",超过ξb，故超筋，不合要求。"
     }else{
-      text3+="\n由于ξ="+ξ+",不超过ξb，故合乎要求。\n ys=0.5*(1+√(1-2as))="+ys+";\n As=M/(fy*ys*h0)="+As+"(mm2);\n"
+      if(ρmin>ρ){
+      text3+="\n由于ξ="+ξ+",不超过ξb，故合乎要求。\n由于ρ="+ρ+",ρmin="+ρmin+",ρ<ρmin,不合要求"
+      }else{
+        text3+="\n由于ξ="+ξ+",不超过ξb，故合乎要求。\n由于ρ="+ρ+",ρmin="+ρmin+",ρ=>ρmin,合乎要求;\n"+"故，ys=0.5*(1+√(1-2as))="+ys+";\n As=M/(fy*ys*h0)="+As+"(mm2);\n"
+      }
     }
+    var text4 = "（4）最后：如果上述数据出现有异常，请先检查是否完整正确输入数据。如果无法解决，也可反馈，可能是程序有bug也不奇怪，至于什么时候修，这个就得继续画饼了ヽ(゜▽゜　)－C<(/;◇;)/~"
     this.setData({
       res_text1:text1,
       res_text2:text2,
-      res_text3:text3
+      res_text3:text3,
+      res_text4:text4
     })
   },
 
@@ -162,7 +178,7 @@ Page({
       h:null,
       as:null,
       M:null,
-      res_text1:'none',
+      res_text1:'请输入工程中合理的数据，\n注意单位转换;\n（ps：个人玩具项目，画饼不断，也许有bug，计算结果仅供参考(￣▽￣)"）',
       res_text2:'',
       res_text3:'',
       res_text4:''
